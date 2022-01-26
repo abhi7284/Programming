@@ -7,6 +7,14 @@ class SNode:
 
         self.data = data;
         self.next = None
+        
+
+
+class SingleLinkedList:
+
+    def __init__(self):
+        self.root = None
+
     def insert(self,data):
         
         new_node = SNode(data)
