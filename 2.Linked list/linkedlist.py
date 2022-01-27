@@ -83,6 +83,7 @@ class SingleLinkedList:
             
             return
 
+    # NOT working
     def delete_all(self):
         if self.root == None:
             print("Already Empty List")
@@ -97,10 +98,50 @@ class SingleLinkedList:
 
         self.root = None
 
+    # print reverse
+    def print_reverse(self, temp):
+        if temp:
+            self.print_reverse(temp.next)
+            print(temp.data, end = '<-')
+
+        return
+
+    #NOT working
+    def reverse(self,i,j,k):
+
+        # 0 element
+        if self.root == None:
+            return
         
+        # 1 element
+        elif self.root.next == None:
+            return
+        # 2 element
+        elif self.root.next.next == None:
+            temp = self.root.next
+            self.root.next = None
+            temp.next = self.root
+            self.root = temp
+            return
+        else:
+            if k.next:
+                j.next = i
+                self.reverse(j,k,k.next)
+        self.root = k
+        return
 
-            
+    #NOT working
+    def is_palindrome(self,temp):
 
+        if temp:
+            self.is_palindrome(temp.next)
+            if temp.data != self.data:
+                print("NOT Palindrome!")
+                return
+        print("Palindrome")
+        return
+        
+        
     def print_list(self):
 
         temp = self.root
@@ -128,10 +169,13 @@ llist.print_list()
 print(llist.find_middle())
 llist.delete_middle()
 llist.print_list()
-llist.delete_all()
-
-
 
 
 llist.print_list()
-            
+llist.print_reverse(llist.root)
+print()
+llist.print_list()
+llist.is_palindrome(llist.root)
+#llist.reverse(llist.root,llist.root.next,llist.root.next.next)
+
+llist.print_list()            
